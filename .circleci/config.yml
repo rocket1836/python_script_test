@@ -1,16 +1,16 @@
 version:2.0
-jobs:
-  build:
-  general:
-   artifacts:
+jobs :
+  build :
+  general :
+   artifacts :
     - "./tests/screenshots" #Save the screenshots for the tests
  
 ## Customize dependencies
-  dependencies:
-   pre:
+  dependencies :
+   pre :
     - sudo pip install -U selenium	
  
 ## Running Tests
-  test:
-   override:
-    - sh SauceLabs.sh
+  steps:
+      - checkout
+      - run: sh SauceLabs.sh
