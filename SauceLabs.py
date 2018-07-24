@@ -1,5 +1,5 @@
 from selenium import webdriver
-import smtplib
+#import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -12,13 +12,8 @@ desired_cap = {
     'version': "31" ,
 }
 
-#file_location = "E:\\Aautomation_software\\Test.xlsx"
-#workbook = xlrd.open_workbook (file_location)
-#sheet = workbook.sheet_by_index (0)
-#data = [[sheet.cell_value (r , c) for r in range (sheet.nrows)] for c in range (sheet.ncols)]
-
 driver = webdriver.Remote(
-    command_executor='http://akothari10:6a672b25-b10e-489a-8602-98530f8fd012@ondemand.saucelabs.com:80/wd/hub',
+    command_executor='http://vpoddar:a01cf0a6-3607-4f8d-a6b8-b0e8aa912379@ondemand.saucelabs.com:80/wd/hub',
     desired_capabilities=desired_cap)
 driver.maximize_window ()
 driver.get ("http://www.google.com")
