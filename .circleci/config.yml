@@ -1,9 +1,6 @@
 version:2.0
 jobs:
   build:
-	machine
-	 Python:
-		version:pypy3.7.0 
   general:
    artifacts:
     - "./tests/screenshots" #Save the screenshots for the tests
@@ -16,4 +13,4 @@ jobs:
 ## Running Tests
   test:
    override:
-    - python tests/SauceLabs.py
+    - python SauceLabs.py
