@@ -13,4 +13,4 @@ jobs:
 ## Running Tests
   test:
    override:
-    - python SauceLabs.py
+    - sh SauceLabs.sh
