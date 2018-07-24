@@ -1,11 +1,7 @@
 version: 2
 jobs:
   build:
-	docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-		environment:
-          FLASK_CONFIG: testing
-    steps:
+	steps:
 	  - checkout
       - run: 
 	   name: Download Selenium
@@ -23,15 +19,15 @@ jobs:
             pip install -r requirements/dev.txt
 	  
 	  - run: 
-		command: |
+		  command: |
             . venv/bin/activate
 			pip install sauceclient
 	  - run: 
-		command: |
+		  command: |
             . venv/bin/activate
 			pip install smtplib
 	  - run: 
-		command: |
+		  command: |
             . venv/bin/activate
 			pip install mimemultipart 
 	  - run: sh SauceLabs.sh
