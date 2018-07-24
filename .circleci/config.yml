@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.2-stretch-browsers
+      - image: circleci/python:3.7.0
         environment:
           FLASK_CONFIG: testing
           TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
@@ -25,11 +25,7 @@ jobs:
           background: true
       - restore_cache:
           key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
-	  - run:
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install --upgrade pip
+		  
       - run:
           command: |
             python3 -m venv venv
