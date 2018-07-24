@@ -13,14 +13,10 @@ jobs:
 	 - run:
           name: Start Selenium
           command: |
-            java -jar selenium-server-standalone-3.9.1.jar -log test-reports/selenium.log
-          background: true
+            java -jar selenium-server-standalone-3.9.1.jar
       - run:
           command: |
-            python -m venv venv
-            . venv/bin/activate
-            pip install -r requirements/dev.txt
-	  
+            python -m venv venv  
 	  - run: 
 		  command: |
             . venv/bin/activate
