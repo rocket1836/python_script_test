@@ -13,10 +13,10 @@ desired_cap = {
     'version': "31" ,
 }
 
-file_location = "E:\\Aautomation_software\\Test.xlsx"
-workbook = xlrd.open_workbook (file_location)
-sheet = workbook.sheet_by_index (0)
-data = [[sheet.cell_value (r , c) for r in range (sheet.nrows)] for c in range (sheet.ncols)]
+#file_location = "E:\\Aautomation_software\\Test.xlsx"
+#workbook = xlrd.open_workbook (file_location)
+#sheet = workbook.sheet_by_index (0)
+#data = [[sheet.cell_value (r , c) for r in range (sheet.nrows)] for c in range (sheet.ncols)]
 
 driver = webdriver.Remote(
     command_executor='http://akothari10:6a672b25-b10e-489a-8602-98530f8fd012@ondemand.saucelabs.com:80/wd/hub',
@@ -24,7 +24,7 @@ driver = webdriver.Remote(
 driver.maximize_window ()
 driver.get ("http://www.google.com")
 
-driver.find_element_by_id ("lst-ib").send_keys (data[0][2])
+driver.find_element_by_id ("lst-ib").send_keys ("Abhay linkedIN")
 driver.find_element_by_xpath ("//*[@id='tsf']/div[2]/div[3]/center/input[1]").click ()
 driver.implicitly_wait (20)
 driver.get_screenshot_as_file ("Google.png")

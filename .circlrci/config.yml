@@ -1,5 +1,16 @@
+Version:2.0
 jobs:
   build:
+    docker:
+	 - image: circleci/python:3.7.0
+	machine:
+	 Python:
+	  version:3.7.0
     steps:
+	  - checkout
       - run: 
-			python SauceLabs.py
+	  pip install selenium
+	  pip install sauceclient
+	  pip install smtplib
+	  pip install mimemultipart 
+	  python SauceLabs.py
