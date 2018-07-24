@@ -1,16 +1,14 @@
-version:2.0
-jobs :
-  build :
-  general :
-   artifacts :
-    - "./tests/screenshots" #Save the screenshots for the tests
- 
-## Customize dependencies
-  dependencies :
-   pre :
-    - sudo pip install -U selenium	
- 
-## Running Tests
-  steps:
+version: 2
+
+jobs:
+	build:
+		docker:
+			# specify the version you desire here
+			- image: circleci/python:3.6.1
+	## Running Tests
+	steps:
       - checkout
+	  - run:
+			command: |
+			sudo pip install -U selenium
       - run: sh SauceLabs.sh
