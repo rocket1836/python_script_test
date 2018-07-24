@@ -1,28 +1,14 @@
-version: 2
-jobs:
-  build:
-	machine:
-		post:
-			- pyenv global 2.7.12 3.4.4
-  dependencies:
-	pre:
-		- sudo pip install -U selenium
-  steps:
-	- checkout
-    - run:
-          command: |
-            python -m venv venv  
-	- run: 
-		  command: |
-            . venv/bin/activate
-			pip install sauceclient
-	- run: 
-		  command: |
-            . venv/bin/activate
-			pip install smtplib
-	- run: 
-		  command: |
-            . venv/bin/activate
-			pip install mimemultipart 
-	- run: sh SauceLabs.sh
-	  
+## Set the artifacts
+general:
+  artifacts:
+    - "./tests/screenshots" #Save the screenshots for the tests
+ 
+## Customize dependencies
+dependencies:
+  pre:
+    - sudo pip install -U selenium	
+ 
+## Running Tests
+test:
+   override:
+    - python tests/SauceLabs.py
