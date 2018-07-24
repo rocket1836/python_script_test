@@ -19,7 +19,7 @@ driver.maximize_window ()
 driver.get ("http://www.google.com")
 
 driver.find_element_by_id ("lst-ib").send_keys ("Abhay linkedIN")
-driver.find_element_by_xpath ("//*[@id='tsf']/div[2]/div[3]/center/input[1]").click ()
+driver.find_element_by_value ("Google Search").click ()
 driver.implicitly_wait (20)
 driver.get_screenshot_as_file ("Google.png")
 
