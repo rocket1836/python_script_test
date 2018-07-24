@@ -10,4 +10,8 @@ jobs:
     steps:
       - checkout
       - run: sudo pip install -U selenium		 
+<<<<<<< HEAD
       - run: sh SauceLabs.sh
+=======
+      - run: sh SauceLabs.sh
+>>>>>>> afc42f4ae8653805794b59b7c998eb2fcab07eb1
