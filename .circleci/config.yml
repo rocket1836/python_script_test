@@ -2,32 +2,27 @@ version: 2
 jobs:
   build:
 	machine:
-		Python:
-			version:3.7.0
-	steps:
-	  - checkout
-      - run: 
-	   name: Download Selenium
-          command: |
-            curl -O http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
-	 - run:
-          name: Start Selenium
-          command: |
-            java -jar selenium-server-standalone-3.9.1.jar
-      - run:
+		post:
+			- pyenv global 2.7.12 3.4.4
+  dependencies:
+	pre:
+		- sudo pip install -U selenium
+  steps:
+	- checkout
+    - run:
           command: |
             python -m venv venv  
-	  - run: 
+	- run: 
 		  command: |
             . venv/bin/activate
 			pip install sauceclient
-	  - run: 
+	- run: 
 		  command: |
             . venv/bin/activate
 			pip install smtplib
-	  - run: 
+	- run: 
 		  command: |
             . venv/bin/activate
 			pip install mimemultipart 
-	  - run: sh SauceLabs.sh
+	- run: sh SauceLabs.sh
 	  
