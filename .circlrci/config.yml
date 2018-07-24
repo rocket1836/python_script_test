@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  build:
+    machine:
+     Python:
+      version:3.7 
+    steps:
+      - checkout
+      - run: sh SauceLabs.sh
