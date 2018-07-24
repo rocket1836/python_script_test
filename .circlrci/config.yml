@@ -1,10 +1,7 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-	  - image: circleci/postgres:9.6.5-alpine-ram
-        environment:
+    Environment:
           FLASK_CONFIG: testing
     steps:
 	  - checkout
@@ -17,11 +14,9 @@ jobs:
           command: |
             java -jar selenium-server-standalone-3.9.1.jar -log test-reports/selenium.log
           background: true
-      - restore_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
-	  - run:
+      - run:
           command: |
-            python3 -m venv venv
+            python -m venv venv
             . venv/bin/activate
             pip install -r requirements/dev.txt
 	  
@@ -37,6 +32,5 @@ jobs:
 		command: |
             . venv/bin/activate
 			pip install mimemultipart 
-	  - run: 
-			sh SauceLabs.sh
+	  - run: sh SauceLabs.sh
 	  
