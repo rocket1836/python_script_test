@@ -2,12 +2,12 @@ version: 2
 jobs:
   build:
     docker:
-		# specify the version you desire here
+	# specify the version you desire here
 	 - image: circleci/python:3.6.1
     machine:
-     python:
-      version:pypy3.6.1 
+     	python:
+      		version:pypy3.6.1 
     steps:
       - checkout
-	  - run: sudo pip install -U selenium		 
+      - run: sudo pip install -U selenium		 
       - run: sh SauceLabs.sh
