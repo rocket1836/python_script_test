@@ -6,5 +6,7 @@ jobs:
 	- image: circleci/python:3.6.1
     steps:
       - checkout
-      - run: sudo pip install -U selenium		 
-      - run: sh SauceLabs.sh
+      - run: 
+		command: sudo pip install -U selenium		 
+      - run: 
+		command: sh SauceLabs.sh
