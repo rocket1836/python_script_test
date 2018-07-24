@@ -1,6 +1,9 @@
 version: 2
 jobs:
   build:
+	machine:
+		Python:
+			version:pypy 3.7.0
 	steps:
 	  - checkout
       - run: 
