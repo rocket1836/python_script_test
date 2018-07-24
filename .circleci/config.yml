@@ -3,7 +3,7 @@ jobs:
   build:
 	machine:
 		Python:
-			version:pypy 3.7.0
+			version:3.7.0
 	steps:
 	  - checkout
       - run: 
